@@ -1,0 +1,14 @@
+{
+  "categories": {
+    "dev": "http://localhost:4000/categories",
+    "prod": "http://localhost:8080/api/categories"
+  },
+  "subscribe": {
+    "dev": "http://localhost:4000/subscribe",
+    "prod": "http://localhost:8080/api/subscribe"
+  },
+  "unsubscribe": {
+    "dev": "http://localhost:4000/unsubscribe",
+    "prod": "http://localhost:8080/api/unsubscribe"
+  }
+}

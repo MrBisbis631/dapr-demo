@@ -1,0 +1,27 @@
+{
+  "categories": [
+    { "slug": "tech", "description": "Technology" },
+    { "slug": "health", "description": "Health" },
+    { "slug": "finance", "description": "Finance" },
+    { "slug": "travel", "description": "Travel" },
+    { "slug": "food", "description": "Food" },
+    { "slug": "sports", "description": "Sports" },
+    { "slug": "entertainment", "description": "Entertainment" },
+    { "slug": "lifestyle", "description": "Lifestyle" },
+    { "slug": "education", "description": "Education" },
+    { "slug": "politics", "description": "Politics" },
+    { "slug": "science", "description": "Science" },
+    { "slug": "business", "description": "Business" },
+    { "slug": "fashion", "description": "Fashion" },
+    { "slug": "music", "description": "Music" },
+    { "slug": "art", "description": "Art" },
+    { "slug": "culture", "description": "Culture" },
+    { "slug": "environment", "description": "Environment" },
+    { "slug": "history", "description": "History" },
+    { "slug": "religion", "description": "Religion" },
+    { "slug": "philosophy", "description": "Philosophy" },
+    { "slug": "psychology", "description": "Psychology" },
+    { "slug": "sociology", "description": "Sociology" },
+    { "slug": "technology", "description": "Technology" }
+  ]
+}
