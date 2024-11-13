@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script type="module" src="../main.js" defer></script>
+    <title>See You Soon</title>
+  </head>
+  <body>
+    <div class="min-h-screen flex flex-col justify-between">
+      <main class="container mx-auto p-1.5">
+        <h1 class="text-center font-semibold text-2xl text-violet-950">
+          See You Soon
+        </h1>
+        <p class="text-center text-slate-900 mt-4">
+          We're sorry to see you go. If you change your mind, you can always
+          subscribe again.
+        </p>
+      </main>
+      <footer
+        class="py-8 bg-slate-800 text-center text-white text-xs font-semibold"
+        x-data="{ year: new Date().getFullYear() }"
+      >
+        &copy; My App - <span x-text="year"></span>
+      </footer>
+    </div>
+  </body>
+</html>

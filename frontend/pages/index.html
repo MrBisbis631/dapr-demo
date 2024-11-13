@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script type="module" src="../main.js" defer></script>
+    <title>Vite App</title>
+  </head>
+  <body>
+    <div class="min-h-screen flex flex-col justify-between">
+      <main
+        class="container mx-auto p-1.5"
+        x-data="{ categories:  [] }"
+        x-init="fetch($store.endpoints.categoriesEndpoint).then(res => res.json()).then(data => categories = data)"
+      >
+        <h1 class="text-center font-semibold text-2xl text-violet-950">
+          Subscribe to Newsletter
+        </h1>
+        <form method="post" :action="$store.endpoints.subscribeEndpoint" class="max-w-md mx-auto">
+          <div class="mb-4">
+            <label
+              for="Name"
+              class="block text-sm font-semibold text-slate-900"
+            >
+              Name
+            </label>
+            <input
+              type="text"
+              placeholder="First Last"
+              id="Name"
+              name="Name"
+              class="w-full px-3 py-2 border border-slate-300 rounded-md mb-3"
+              required
+            />
+            <label
+              for="email"
+              class="block text-sm font-semibold text-slate-900"
+            >
+              Email
+            </label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              class="w-full px-3 py-2 border border-slate-300 rounded-md"
+              required
+            />
+          </div>
+          <div class="relative">
+            <div
+              class="h-[1px] top-1/2 absolute -z-10 w-full bg-violet-950"
+            ></div>
+            <label
+              for="email"
+              class="block bg-white w-fit text-sm font-semibold mb-3 mx-auto px-3 text-center text-slate-900"
+            >
+              Topics of interest
+            </label>
+          </div>
+          <div class="grid grid-cols-2 gap-2 mb-3">
+            <template x-for="cat in categories">
+              <div class="flex flex-row items-center space-x-2">
+                <input
+                  type="checkbox"
+                  :id="cat.slug"
+                  :name="cat.slug"
+                  class="form-checkbox h-4 w-4 text-violet-950 accent-violet-600"
+                />
+                <label
+                  :for="cat.slug"
+                  class="text-sm font-semibold text-slate-900"
+                  x-text="cat.description"
+                ></label>
+              </div>
+            </template>
+          </div>
+          <button
+            type="submit"
+            class="w-full bg-violet-950 text-white font-semibold py-2 rounded-md"
+          >
+            Subscribe
+          </button>
+        </form>
+      </main>
+      <footer
+        class="py-8 bg-slate-800 text-center text-white text-xs font-semibold"
+        x-data="{ year: new Date().getFullYear() }"
+      >
+        &copy; My App - <span x-text="year"></span>
+      </footer>
+    </div>
+  </body>
+</html>
