@@ -1,8 +1,8 @@
 import React from "react";
 import express, { Request, Response } from "express";
 import { render } from "@react-email/render";
-import { NotionMagicLinkEmail } from "./emails/notion-magic-link";
-import { PlaidVerifyIdentityEmail } from "./emails/plaid-verify-identity";
+import { Newsletter } from "./emails/newsletter";
+import { Welcome } from "./emails/welcome";
 import bodyParser from "body-parser";
 import { bodySchema } from "./validators";
 
@@ -15,15 +15,19 @@ app.post("/", async (req: Request, res: Response) => {
   try {
     const body = bodySchema.parse(req.body);
 
+    let Component = null;
+
     if (body.template == "welcome") {
-      const html = await render(<NotionMagicLinkEmail {...body} />);
-      res.json({ html });
+      Component = Welcome;
     }
 
     if (body.template == "newsletter") {
-      const html = await render(<PlaidVerifyIdentityEmail {...body} />);
-      res.json({ html });
+      Component = Newsletter;
     }
+
+    const html = await render(<Component {...body} />, { pretty: true });
+    const plain = await render(<Component {...body} />, { plainText: true });
+    res.json({ html, plain });
   } catch (error) {
     res.status(400).send(error.errors);
   }

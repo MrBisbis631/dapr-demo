@@ -1,0 +1,6 @@
+{
+  "unsubscribe": {
+    "dev": "http://localhost:4000/unsubscribe",
+    "prod": "https://example.com/unsubscribe"
+  }
+}

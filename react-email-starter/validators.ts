@@ -1,14 +1,12 @@
 import { z } from "zod";
 
 const welcomeSchema = z.object({
-  email: z.string().email(),
   name: z.string(),
   uuid: z.string().uuid(),
   template: z.literal("welcome"),
 });
 
 const newsletterSchema = z.object({
-  email: z.string().email(),
   name: z.string(),
   uuid: z.string().uuid(),
   template: z.literal("newsletter"),
