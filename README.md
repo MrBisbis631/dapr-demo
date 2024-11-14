@@ -32,3 +32,39 @@ The application will be available at `http://localhost:5173/pages/<see the pages
 ### Deployment
 
 Using `docker-compose`, the build will go to the `nginx` volume in `/static` folder. Internally, the `nginx` will serve the static files.
+
+
+## Mail builder 
+
+We  use a simple `Node.js` application to render mails with `react-mail`.
+
+### Technologies
+
+- Node.js
+- React
+- `react-mail` to render the mail template.
+
+### How to run (Development)
+
+- Clone the repository
+- cd to `react-mail-starter` directory using `cd react-mail-starter`
+- Run `npm install`
+- Run `npm run dev` 
+- Open `http://localhost:3000` to see the rendered mail template.
+
+### Test Docker-compose build
+
+- Run `docker-compose up --build` to build the image and run the container.
+- use CURL to test the rendered mail template.
+
+```bash
+curl -X POST http://localhost:8081 \
+-H "Content-Type: application/json" \
+-d '{ 
+  "name": "John Doe",
+  "uuid": "123e4567-e89b-12d3-a456-426614174000",
+  "template": "newsletter",
+  "summery": "This is a summary of the newsletter.",
+  "link": "https://example.com"
+}'
+```
