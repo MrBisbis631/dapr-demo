@@ -1,20 +1,22 @@
+# frontend builder
 FROM node:20 AS builder
 
 WORKDIR /app
 
-COPY ./frontend/package.json ./
-COPY ./frontend/package-lock.json ./
+# clean install dependencies
+COPY ./frontend/package.json ./frontend/package-lock.json ./
+RUN npm ci
 
-RUN npm ci 
+# build the frontend
+COPY ./frontend ./
+RUN npm run build
 
-COPY ./frontend .
-
-RUN npm run build 
+# run the backend
 
 FROM nginx:alpine
 
+# Copy the built Vite files to the Nginx HTML directory
 COPY --from=builder /app/dist /usr/share/nginx/html
 
-EXPOSE 80
-
+# Start Nginx
 CMD ["nginx", "-g", "daemon off;"]

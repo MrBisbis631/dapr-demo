@@ -1,4 +1,4 @@
-version: '4'
+version: "4"
 
 services:
   frontier:
@@ -8,6 +8,8 @@ services:
     ports:
       - "80:80"
     volumes:
-      - ./volumes/nginx:/usr/share/nginx/html:rw
+      - nginx_data:/usr/share/nginx/html:rw
       - ./nginx.conf:/etc/nginx/nginx.conf:ro
 
+volumes:
+  nginx_data:

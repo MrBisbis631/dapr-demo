@@ -4,8 +4,6 @@ import endpoints from "./data/endpoints.json";
 
 window.Alpine = Alpine;
 
-console.log(endpoints.categories)
-
 // Store for global endpoints
 Alpine.store("endpoints", {
   categoriesEndpoint: import.meta.env.DEV
